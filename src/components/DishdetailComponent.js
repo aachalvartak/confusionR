@@ -5,9 +5,7 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody,
 class DishDetail extends Component{
 
 	constructor(props) {
-        super(props);
-
-        
+        super(props);    
     }
     
     renderDish(dish) {
@@ -34,36 +32,44 @@ class DishDetail extends Component{
     				<h4>Comments</h4>
     				{dishComment}
     			</div>
+    		);
+    	else
+    		return(
+    			<div></div>
     		);		
     }
 
 	render() {
 
 		const selectedDish = this.props.dish;
-		var dishComment;
+		var dishComment = null;
 		if(selectedDish) {
 			dishComment = selectedDish.comments.map((comment) => {
 	            return (
-	                <ul key={dishComment.id} className="list-unstyled">
-	                	<li>{dishComment.comment}</li>
-	                    <li>--{dishComment.author}, {dishComment.date}</li>
+	                <ul key={comment.id} className="list-unstyled">
+	                	<li>{comment.comment}</li>
+	                    <li>--{comment.author}, 
+	                    {new Intl.DateTimeFormat('en-US', 
+	                    { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</li>
 	                </ul>
 	            );
 	        });
 		}
 
 	    return (
-		<div className="row">
+	    	<div className="container">
+				<div className="row">
 
-			<div className="col-12 col-md-5 m-1">
-		        {this.renderDish(this.props.dish)}
-		    </div>
+					<div className="col-12 col-md-5 m-1">
+				        {this.renderDish(this.props.dish)}
+				    </div>
 
-		    <div className="col-12 col-md-5 m-1">
-		    	{this.renderComments(dishComment)}
-		    </div>
+				    <div className="col-12 col-md-5 m-1">
+				    	{this.renderComments(dishComment)}
+				    </div>
 
-        </div>
+				</div>
+			</div>
         );  
 
 	}
