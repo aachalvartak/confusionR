@@ -31,8 +31,8 @@ class CommentForm extends Component {
     }
     
     handleComment(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.toggleModal();
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
 
@@ -73,7 +73,7 @@ class CommentForm extends Component {
                                         model=".yourname"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
+                                            required: 'Required...',
                                             minLength: 'Must be greater than 2 characters',
                                             maxLength: 'Must be 15 characters or less'
                                         }}
@@ -128,7 +128,7 @@ class CommentForm extends Component {
 	    	);
     }
 
-    function RenderComments({comments}) {
+    function RenderComments({comments, addComment, dishId}) {
     	var dishComment = null;
     	if (comments!=null)
 				return(
@@ -146,7 +146,7 @@ class CommentForm extends Component {
 		                		);
 		                	})}
 
-		                	<CommentForm />
+		                	<CommentForm dishId={dishId} addComment={addComment} />
 		            </div>
 	            );
     							    				
@@ -173,7 +173,10 @@ class CommentForm extends Component {
 
 	                <div className="row">
 	                        <RenderDish dish={props.dish} />
-	                        <RenderComments comments={props.comments} />
+	                        <RenderComments comments={props.comments}
+                            addComment={props.addComment}
+                            dishId={props.dish.id}
+                            />
 	                </div>    
                 </div>
             );
