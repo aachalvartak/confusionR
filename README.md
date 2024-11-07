@@ -1,6 +1,7 @@
 ## Restaurant's Website Using React
 
-Implemented Customized Website for a Restaurant for smooth navigation and ease of use. Animations are added for better visual experience and forms for ensuring better interactivity with customers.
+Implemented full-fledged Customized Website for a Restaurant for smooth navigation and ease of use. 
+Animations are added for better visual experience and forms for ensuring better interactivity with customers.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
