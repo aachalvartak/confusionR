@@ -1,3 +1,9 @@
+## Restaurant's Website Using React
+
+Implemented Customized Website for a Restaurant for smooth navigation and ease of use. Animations are added for better visual experience and forms for ensuring better interactivity with customers.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
